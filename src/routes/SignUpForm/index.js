@@ -125,9 +125,7 @@ class SignUpForm extends Component {
           layout="full"
           onClick={this.handleNextButtonClick}
           disabled={disabled} />
-        <a href="#" className="Link">
-          Register your nonprofit
-        </a>
+        New here? <a href="#" className="Link">Register your nonprofit</a>
       </div>
     )
   }
