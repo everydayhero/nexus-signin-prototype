@@ -32,6 +32,7 @@ class SignUpForm extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.fakeRequest = this.fakeRequest.bind(this)
     this.setDirty = this.setDirty.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   fakeRequest () {
@@ -86,19 +87,38 @@ class SignUpForm extends Component {
     }, randomLoadTime(2800, 3200))
   }
 
+  handleSubmit (e) {
+    const {
+      emailValue,
+      passwordValue,
+      showPasswordEntry
+    } = this.state
+
+    e.preventDefault()
+
+    if (emailValue && passwordValue && showPasswordEntry) {
+      this.handleSignIn()
+    } else {
+      this.handleNextButtonClick()
+    }
+  }
+
   renderPasswordEntry () {
-    return this.state.showPasswordEntry && (
+    const { showPasswordEntry, passwordValue } = this.state
+
+    return showPasswordEntry && (
       <div className="PasswordEntry">
         <TextInput
           label="Your password"
           type="password"
-          value={ this.state.passwordValue }
+          value={ passwordValue }
           onChange={ this.handlePasswordChange } />
         <Button
           kind="cta"
           label="Sign In"
           layout="full"
-          onClick={this.handleSignIn} />
+          onClick={this.handleSignIn}
+          disabled={!passwordValue} />
         <a href="#" className="Link">
           Forgot your password?
         </a>
@@ -146,7 +166,7 @@ class SignUpForm extends Component {
           </hgroup>
         </header>
 
-        <div className="SignUpForm__body">
+        <form className="SignUpForm__body" onSubmit={this.handleSubmit}>
           <TextInput
             label="Your email address"
             value={ emailValue }
@@ -167,7 +187,7 @@ class SignUpForm extends Component {
             transitionLeaveTimeout={200}>
             { this.renderPasswordEntry() }
           </ReactCSSTransitionGroup>
-        </div>
+        </form>
         <FullPageLoader
           visible={this.state.signingIn}
           title="Signing in"
