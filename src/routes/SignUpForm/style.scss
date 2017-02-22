@@ -1,0 +1,122 @@
+@import "../../variables";
+
+.SignUpForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 150px;
+}
+
+.SignUpForm__header {
+  color: $charcoal;
+  margin-bottom: 48px;
+  text-align: center;
+
+  h1 {
+    font-family: $titleFontStack;
+    font-size: 64px;
+    margin: 0 0 16px;
+  }
+
+  h2 {
+    font-family: $defaultFontStack;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+  }
+}
+
+.SignUpForm__body {
+  width: 345px;
+  text-align: center;
+
+  .hui-TextInput--full {
+    padding: 0;
+  }
+
+  .hui-TextInput--full,
+  .hui-Button {
+    margin: 0 0 24px;
+  }
+
+  .hui-Button {
+    display: block;
+    width: 100%;
+  }
+
+  .Link {
+    color: $green;
+    font-family: $defaultFontStack;
+    text-decoration: none;
+
+    &:hover {
+      color: $lightGreen;
+    }
+  }
+}
+
+
+.AnimatedNextButton-enter {
+  opacity: 0.01;
+  transform: translateX(-100px);
+}
+
+.AnimatedNextButton-enter.AnimatedNextButton-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 600ms $bounce;
+}
+
+.AnimatedNextButton-leave {
+  opacity: 1;
+}
+
+.AnimatedNextButton-leave.AnimatedNextButton-leave-active {
+  opacity: 0.01;
+  transform: translateX(-100px);
+  transition: all 200ms $bounce;
+}
+
+
+
+
+.AnimatedPasswordEntry-enter {
+  .hui-TextInput,
+  .hui-Button {
+    opacity: 0.01;
+    transform: translateX(100px);
+  }
+}
+
+.AnimatedPasswordEntry-enter.AnimatedPasswordEntry-enter-active {
+  .hui-TextInput,
+  .hui-Button {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 600ms $bounce;
+  }
+}
+
+.AnimatedPasswordEntry-enter.AnimatedPasswordEntry-enter-active {
+  .hui-Button {
+    transition-delay: 100ms;
+  }
+}
+
+.AnimatedPasswordEntry-leave {
+  .hui-TextInput,
+  .hui-Button {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.AnimatedPasswordEntry-leave.AnimatedPasswordEntry-leave-active {
+  .hui-TextInput,
+  .hui-Button {
+    opacity: 0.01;
+    transform: translateX(100px);
+    transition: all 200ms $bounce;
+  }
+}

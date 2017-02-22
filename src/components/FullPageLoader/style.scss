@@ -1,0 +1,49 @@
+@import "../../variables";
+
+.FullPageLoader__loading-title {
+  text-transform: uppercase;
+  font-size: $x-3;
+  padding: $x-3 0 $x-1;
+  font-weight: 700;
+  color: $green;
+  font-family: $defaultFontStack;
+}
+
+.FullPageLoader__loading-subtitle {
+  color: $smoke;
+  font-size: $x-3;
+  font-family: $defaultFontStack;
+}
+
+.FullPageLoader {
+  position: absolute;
+  text-align: center;
+  background: $cream;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.Modal .FullPageLoader {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.Modal--opened .FullPageLoader {
+  opacity: 1;
+}
+
+.FullPageLoader__Wrapper {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+  transition-delay: 300ms;
+}
+
+.Modal--opened .FullPageLoader__Wrapper {
+  opacity: 1;
+}
