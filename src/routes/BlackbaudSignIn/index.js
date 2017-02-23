@@ -31,7 +31,7 @@ class BlackbaudSignIn extends Component {
     this.setState({ loading: true })
 
     setTimeout(() => {
-      this.props.router.push('dashboard')
+      this.props.router.push('dashboard?auth=blackbaud')
     }, randomTiming(2800, 3200))
   }
 

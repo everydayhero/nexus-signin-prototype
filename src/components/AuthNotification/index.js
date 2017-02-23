@@ -3,7 +3,7 @@ import Button from 'hero-ui/buttons/Button'
 
 import './style.scss'
 
-export default () => {
+export default ({ push }) => {
   return (
     <div className="AuthNotification">
       <div className="AuthNotification__content">
@@ -13,7 +13,8 @@ export default () => {
       <div className="AuthNotification__actions">
         <Button
           label="Connect to Blackbaud"
-          kind="secondary" />
+          kind="secondary"
+          onClick={push.bind(null, 'blackbaud-signin')} />
       </div>
     </div>
   )
