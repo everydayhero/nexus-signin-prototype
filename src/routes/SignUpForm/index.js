@@ -3,12 +3,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import TextInput from 'hero-ui/forms/TextInput'
 import Button from 'hero-ui/buttons/Button'
 import FullPageLoader from '../../components/FullPageLoader'
+import randomTiming from '../../lib/randomTiming'
 
 import './style.scss'
-
-const randomLoadTime = (min, max) => {
-  return Math.floor(Math.random() * (max - min)) + min
-}
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -39,11 +36,17 @@ class SignUpForm extends Component {
     this.setState({ loading: true })
 
     setTimeout(() => {
-      this.setState({
-        showPasswordEntry: true,
-        loading: false
-      })
-    }, randomLoadTime(750, 1100))
+      const { query } = this.props.router.location
+
+      if (query && query.auth === 'blackbaud') {
+        this.props.router.push(`blackbaud-signin?email=${this.state.emailValue}`)
+      } else {
+        this.setState({
+          showPasswordEntry: true,
+          loading: false
+        })
+      }
+    }, randomTiming(750, 1100))
   }
 
   setDirty () {
@@ -84,7 +87,7 @@ class SignUpForm extends Component {
 
     setTimeout(() => {
       this.props.router.push('dashboard')
-    }, randomLoadTime(2800, 3200))
+    }, randomTiming(2800, 3200))
   }
 
   handleSubmit (e) {
