@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import BlackbaudLoading from '../../components/BlackbaudLoading'
 import randomTiming from '../../lib/randomTiming'
 
-import loadingGif from './loading.gif'
 import './style.scss'
 
 class BlackbaudSignIn extends Component {
@@ -15,7 +15,6 @@ class BlackbaudSignIn extends Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.renderLoading = this.renderLoading.bind(this)
     this.renderForm = this.renderForm.bind(this)
   }
 
@@ -33,14 +32,6 @@ class BlackbaudSignIn extends Component {
     setTimeout(() => {
       this.props.router.push('dashboard?auth=blackbaud')
     }, randomTiming(2800, 3200))
-  }
-
-  renderLoading () {
-    return (
-      <div className="BlackbaudSignIn__loading">
-        <img src={loadingGif} alt="loading" />
-      </div>
-    )
   }
 
   renderForm () {
@@ -65,7 +56,7 @@ class BlackbaudSignIn extends Component {
 
   render () {
     if (this.state.loading) {
-      return this.renderLoading()
+      return <BlackbaudLoading />
     } else {
       return this.renderForm()
     }

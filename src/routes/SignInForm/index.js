@@ -7,7 +7,7 @@ import randomTiming from '../../lib/randomTiming'
 
 import './style.scss'
 
-class SignUpForm extends Component {
+class SignInForm extends Component {
   constructor(props) {
     super(props)
 
@@ -38,7 +38,9 @@ class SignUpForm extends Component {
     setTimeout(() => {
       const { query } = this.props.router.location
 
-      if (query && query.auth === 'blackbaud') {
+      if (query && query.auth === 'blackbaud-signedin') {
+        this.props.router.push(`blackbaud-confirm?email=${this.state.emailValue}`)
+      } else if (query && query.auth === 'blackbaud-signedout') {
         this.props.router.push(`blackbaud-signin?email=${this.state.emailValue}`)
       } else {
         this.setState({
@@ -161,15 +163,15 @@ class SignUpForm extends Component {
     } = this.state
 
     return (
-      <div className="SignUpForm">
-        <header className="SignUpForm__header">
+      <div className="SignInForm">
+        <header className="SignInForm__header">
           <hgroup>
             <h1>Sign In</h1>
             <h2>Sign in to access your everydayhero account</h2>
           </hgroup>
         </header>
 
-        <form className="SignUpForm__body" onSubmit={this.handleSubmit}>
+        <form className="SignInForm__body" onSubmit={this.handleSubmit}>
           <TextInput
             label="Your email address"
             value={ emailValue }
@@ -200,4 +202,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm
+export default SignInForm

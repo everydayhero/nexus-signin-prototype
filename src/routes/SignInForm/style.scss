@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.SignUpForm {
+.SignInForm {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,7 @@
   font-family: $defaultFontStack;
 }
 
-.SignUpForm__header {
+.SignInForm__header {
   color: $charcoal;
   margin-bottom: 48px;
   text-align: center;
@@ -27,7 +27,7 @@
   }
 }
 
-.SignUpForm__body {
+.SignInForm__body {
   width: 345px;
   text-align: center;
 
