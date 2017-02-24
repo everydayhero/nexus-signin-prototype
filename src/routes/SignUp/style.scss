@@ -1,0 +1,66 @@
+@import '../../variables';
+
+.SignUp {
+  font-family: $defaultFontStack;
+  width: 480px;
+  margin: 100px auto 200px;
+  text-align: center;
+  color: $charcoal;
+}
+
+.SignUp__content {
+  margin: 56px 0;
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.SignUp__signin {
+  color: #fff;
+  background: url('./bb-logo.png') no-repeat 20px center #71bf44;
+  box-shadow: 0 3px 0 #5a9b35;
+  border: 0;
+  border-radius: 3px;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  padding: 12px 40px 12px 60px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: lighten(#71bf44, 2);
+  }
+}
+
+.SignUp__separator {
+  text-align: center;
+  position: relative;
+  margin: 32px auto;
+  width: 300px;
+
+  span {
+    background: #fff;
+    padding: 0 20px;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    position: absolute;
+    top: 9px;
+    z-index: 1;
+  }
+}
+
+.SignUp__signup {
+  color: $green;
+  text-decoration: none;
+
+  &:hover {
+    color: $lightGreen;
+  }
+}

@@ -1,0 +1,49 @@
+.BlackbaudSignUp {
+  background: url('./background.jpg') no-repeat top center #fff;
+  width: 1280px;
+  height: 1158px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.BlackbaudSignUp__email,
+.BlackbaudSignUp__password,
+.BlackbaudSignUp__passwordConfirm,
+.BlackbaudSignUp__firstName,
+.BlackbaudSignUp__lastName,
+.BlackbaudSignUp__button {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  left: 440px;
+  width: 376px;
+  height: 38px;
+  font-size: 16px;
+  padding: 4px 12px;
+}
+
+.BlackbaudSignUp__email {
+  top: 126px;
+}
+
+.BlackbaudSignUp__password {
+  top: 208px;
+}
+
+.BlackbaudSignUp__passwordConfirm {
+  top: 392px;
+}
+
+.BlackbaudSignUp__firstName {
+  top: 473px;
+}
+
+.BlackbaudSignUp__lastName {
+  top: 555px;
+}
+
+.BlackbaudSignUp__button {
+  color: transparent;
+  top: 632px;
+  height: 42px;
+}

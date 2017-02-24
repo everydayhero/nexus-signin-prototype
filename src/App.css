@@ -6,3 +6,7 @@ html, body, ul, ol, li {
 .hui-Row {
   padding: 0;
 }
+
+button {
+  cursor: pointer;
+}
