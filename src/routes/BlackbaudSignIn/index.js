@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import BlackbaudLoading from '../../components/BlackbaudLoading'
 import randomTiming from '../../lib/randomTiming'
 
@@ -30,26 +31,34 @@ class BlackbaudSignIn extends Component {
     this.setState({ loading: true })
 
     setTimeout(() => {
-      this.props.router.push('dashboard?auth=blackbaud')
+      const { router } = this.props
+      const { query } = router.location
+
+      router.push(`dashboard?auth=blackbaud&welcome=${query.welcome}`)
     }, randomTiming(2800, 3200))
   }
 
   renderForm () {
+    const { emailValue, passwordValue } = this.state
+
     return (
       <form className="BlackbaudSignIn" onSubmit={this.handleSubmit}>
         <input
           type="text"
           onChange={(e) => this.handleInputChange('emailValue', e)}
-          value={this.state.emailValue}
+          value={emailValue}
           className="BlackbaudSignIn__email" />
         <input
           type="password"
           onChange={(e) => this.handleInputChange('passwordValue', e)}
-          value={this.state.passwordValue}
+          value={passwordValue}
           className="BlackbaudSignIn__password" />
         <button type="submit" className="BlackbaudSignIn__button">
           sign in
         </button>
+        <Link className="BlackbaudSignIn__create" to={ `blackbaud-signup?email=${emailValue}` }>
+          Create an account
+        </Link>
       </form>
     )
   }

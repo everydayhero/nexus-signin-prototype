@@ -8,7 +8,8 @@
 
 .BlackbaudSignIn__email,
 .BlackbaudSignIn__password,
-.BlackbaudSignIn__button {
+.BlackbaudSignIn__button,
+.BlackbaudSignIn__create {
   background: transparent;
   border: 0;
   position: absolute;
@@ -31,4 +32,10 @@
   color: transparent;
   top: 416px;
   height: 42px;
+}
+
+.BlackbaudSignIn__create {
+  top: 476px;
+  height: 42px;
+  color: transparent;
 }

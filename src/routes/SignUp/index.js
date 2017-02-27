@@ -17,7 +17,7 @@ export default (props) => {
       </div>
 
       <Link
-        to={`/${signInForwardRoute}?email=${email}`}
+        to={`/${signInForwardRoute}?email=${email}&welcome=enabled`}
         className="SignUp__signin">
         Sign in with Blackbaud
       </Link>
@@ -25,7 +25,7 @@ export default (props) => {
       <div className="SignUp__separator"><span>OR</span></div>
 
       <Link
-        to={`/blackbaud-signup?email=${email}`}
+        to={`/blackbaud-signup?email=${email}&welcome=enabled`}
         className="SignUp__signup">
         Create a new Blackbaud account
       </Link>
