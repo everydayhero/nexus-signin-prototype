@@ -117,13 +117,15 @@ class SignInForm extends Component {
           label="Your password"
           type="password"
           value={ passwordValue }
-          onChange={ this.handlePasswordChange } />
+          onChange={ this.handlePasswordChange }
+          autoFocus />
         <Button
           kind="cta"
           label="Sign In"
           layout="full"
           onClick={this.handleSignIn}
-          disabled={!passwordValue} />
+          disabled={!passwordValue}
+          type="submit" />
         <a href="#" className="Link">
           Forgot your password?
         </a>
