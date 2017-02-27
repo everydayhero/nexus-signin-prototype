@@ -3,7 +3,10 @@ import Button from 'hero-ui/buttons/Button'
 
 import './style.scss'
 
-export default ({ push }) => {
+export default ({ router }) => {
+  const { query } = router.location
+  const email = query && query.email ? query.email : ''
+
   return (
     <div className="AuthNotification">
       <div className="AuthNotification__content">
@@ -14,7 +17,7 @@ export default ({ push }) => {
         <Button
           label="Connect to Blackbaud"
           kind="secondary"
-          onClick={push.bind(null, 'blackbaud-signin')} />
+          onClick={router.push.bind(null, `blackbaud-signin?email=${email}`)} />
       </div>
     </div>
   )

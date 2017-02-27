@@ -10,7 +10,7 @@ export default (props) => {
 
   return (
     <div className={ `Dashboard ${bbClass}` }>
-      { notBlackbaudUser && <AuthNotification push={props.router.push} /> }
+      { notBlackbaudUser && <AuthNotification router={props.router} /> }
     </div>
   )
 }

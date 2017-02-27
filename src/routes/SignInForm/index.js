@@ -88,7 +88,7 @@ class SignInForm extends Component {
     this.setState({ signingIn: true })
 
     setTimeout(() => {
-      this.props.router.push('dashboard')
+      this.props.router.push(`dashboard?email=${this.state.emailValue}`)
     }, randomTiming(2800, 3200))
   }
 
