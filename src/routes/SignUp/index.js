@@ -7,6 +7,7 @@ import './style.scss'
 export default (props) => {
   const query = props.location.query
   const email = (query && query.email) ? query.email : ''
+  const signInForwardRoute = query && query.auth === 'blackbaud-signedin' ? 'blackbaud-confirm' : 'blackbaud-signin'
 
   return (
     <div className="SignUp">
@@ -16,7 +17,7 @@ export default (props) => {
       </div>
 
       <Link
-        to={`/blackbaud-signin?email=${email}`}
+        to={`/${signInForwardRoute}?email=${email}`}
         className="SignUp__signin">
         Sign in with Blackbaud
       </Link>
@@ -24,7 +25,7 @@ export default (props) => {
       <div className="SignUp__separator"><span>OR</span></div>
 
       <Link
-        to="/blackbaud-signup"
+        to={`/blackbaud-signup?email=${email}`}
         className="SignUp__signup">
         Create a new Blackbaud account
       </Link>
