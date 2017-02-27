@@ -3,8 +3,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 View the prototype here:
 https://everydayhero.github.io/nexus-signin-prototype/#/
 
-Add the query string `?auth=blackbaud` to see the blackbaud flow.
-
 ---
 
 ### Scripts
