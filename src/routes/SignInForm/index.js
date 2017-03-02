@@ -39,7 +39,7 @@ class SignInForm extends Component {
       const { query } = this.props.router.location
 
       if (query && query.auth === 'blackbaud-signedin') {
-        this.props.router.push(`blackbaud-confirm?email=${this.state.emailValue}`)
+        this.props.router.push(`dashboard?email=${this.state.emailValue}&auth=blackbaud`)
       } else if (query && query.auth === 'blackbaud-signedout') {
         this.props.router.push(`blackbaud-signin?email=${this.state.emailValue}`)
       } else {
