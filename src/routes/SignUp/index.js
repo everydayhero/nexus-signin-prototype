@@ -9,6 +9,8 @@ export default (props) => {
   const email = (query && query.email) ? query.email : ''
   const signInForwardRoute = query && query.auth === `blackbaud-signedin` ? `blackbaud-confirm?email=${email}` : `blackbaud-signin?currentEmail=${email}`
 
+  const signUpForwardRoute = query && query.auth === `blackbaud-signedin` ? `blackbaud-confirm?email=${email}` : `blackbaud-signup?currentEmail=${email}&welcome=enabled`
+
   return (
     <div className="SignUp">
       <img src={illustration} role="presentation" />
@@ -25,7 +27,7 @@ export default (props) => {
       <div className="SignUp__separator"><span>OR</span></div>
 
       <Link
-        to={`/blackbaud-signup?currentEmail=${email}&welcome=enabled`}
+        to={signUpForwardRoute}
         className="SignUp__signup">
         Create a new Blackbaud account
       </Link>
