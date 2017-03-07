@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-View the prototype here:
-https://everydayhero.github.io/nexus-signin-prototype/#/
+Start here to see the scenarios this prototype covers:
+https://everydayhero.github.io/nexus-signin-prototype/#/scenarios
 
 ---
 
