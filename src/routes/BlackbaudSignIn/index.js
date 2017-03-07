@@ -33,6 +33,22 @@ class BlackbaudSignIn extends Component {
     setTimeout(() => {
       const { router } = this.props
       const { query } = router.location
+      const { emailValue } = this.state
+
+      if (query.currentEmail) {
+        router.push(`blackbaud-confirm?currentEmail=${query.currentEmail}&email=${emailValue}`)
+        return
+      }
+
+      if (query.email && query.email !== emailValue) {
+        router.push(`/?auth=blackbaud-signedout&emailError=${emailValue}`)
+        return
+      }
+
+      if (!query.currentEmail && !query.email) {
+        router.push(`blackbaud-confirm?&email=${emailValue}&welcome=${query.welcome}`)
+        return
+      }
 
       router.push(`dashboard?auth=blackbaud&welcome=${query.welcome}`)
     }, randomTiming(2800, 3200))
@@ -40,6 +56,7 @@ class BlackbaudSignIn extends Component {
 
   renderForm () {
     const { emailValue, passwordValue } = this.state
+    const { currentEmail, welcome } = this.props.router.location.query
 
     return (
       <form className="BlackbaudSignIn" onSubmit={this.handleSubmit}>
@@ -56,7 +73,7 @@ class BlackbaudSignIn extends Component {
         <button type="submit" className="BlackbaudSignIn__button">
           sign in
         </button>
-        <Link className="BlackbaudSignIn__create" to={ `blackbaud-signup?email=${emailValue}` }>
+        <Link className="BlackbaudSignIn__create" to={ `blackbaud-signup?email=${emailValue}&currentEmail=${currentEmail}&welcome=${welcome}` }>
           Create an account
         </Link>
       </form>

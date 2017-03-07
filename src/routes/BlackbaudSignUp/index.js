@@ -35,6 +35,17 @@ class BlackbaudSignUp extends Component {
     setTimeout(() => {
       const { router } = this.props
       const { query } = router.location
+      const { emailValue } = this.state
+
+      if (query.currentEmail && query.currentEmail !== emailValue) {
+        router.push(`blackbaud-confirm?currentEmail=${query.currentEmail}&email=${emailValue}`)
+        return
+      }
+
+      if (query.email && query.email !== emailValue) {
+        router.push(`/?auth=blackbaud-signedout&emailError=${emailValue}`)
+        return
+      }
 
       router.push(`dashboard?auth=blackbaud&welcome=${query.welcome}`)
     }, randomTiming(2800, 3200))

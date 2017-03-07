@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import Icon from 'hero-ui/atoms/Icon'
 import BlackbaudLoading from '../../components/BlackbaudLoading'
+import AccountBox from '../../components/AccountBox'
 import randomTiming from '../../lib/randomTiming'
 
-import logo from './bb-logo.png'
 import './style.scss'
 
 class BlackbaudConfirm extends Component {
@@ -23,8 +24,12 @@ class BlackbaudConfirm extends Component {
 
     this.setState({ loading: true })
 
+    const { router } = this.props
+    const { query } = router.location
+    const enableSuccess = query.currentEmail ? 'enabled' : ''
+
     setTimeout(() => {
-      this.props.router.push('dashboard?auth=blackbaud')
+      router.push(`dashboard?auth=blackbaud&welcome=${query.welcome}&connection=${enableSuccess}`)
     }, randomTiming(2800, 3200))
   }
 
@@ -33,36 +38,52 @@ class BlackbaudConfirm extends Component {
 
     this.setState({ loading: true })
 
+    const { query } = this.props.router.location
+    const currentEmail = query.currentEmail || ''
+
+    console.log(currentEmail)
+
     setTimeout(() => {
-      this.props.router.goBack()
+      this.props.router.push(`blackbaud-signin?welcome=enabled&currentEmail=${currentEmail}`)
     }, randomTiming(300, 1100))
   }
 
   renderForm () {
+    const { query } = this.props.router.location
+
     return (
       <div className="BlackbaudConfirm">
-        <img src={logo} alt="logo" />
         <div className="BlackbaudConfirm__content">
           <div className="BlackbaudConfirm__title">
-            everydayhero would like to connect to your Blackbaud account
+            Confirm your account
           </div>
-          <div className="BlackbaudConfirm__email">
-            {this.props.location.query.email}
+          <div className="BlackbaudConfirm__subtitle">
+            You are about to link these accounts:
+          </div>
+          <div className="BlackbaudConfirm__accounts">
+            <AccountBox
+              head={ query.currentEmail ? "everydayhero account" : "everydayhero organisation" }
+              text={ query.currentEmail || "World Puppy Foundation" } />
+            <Icon className="BlackbaudConfirm__icon" icon="link" />
+            <AccountBox
+              head="Blackbaud account"
+              text={query.email} />
           </div>
         </div>
-
-        <button
-          type="button"
-          className="BlackbaudConfirm__button BlackbaudConfirm__button--allow"
-          onClick={this.handleAllow}>
-          Allow
-        </button>
-        <button
-          type="button"
-          className="BlackbaudConfirm__button BlackbaudConfirm__button--deny"
-          onClick={this.handleDeny}>
-          Deny
-        </button>
+        <div className="BlackbaudConfirm__actions">
+          <button
+            type="button"
+            className="BlackbaudConfirm__button BlackbaudConfirm__button--continue"
+            onClick={this.handleAllow}>
+            Continue
+          </button>
+          <button
+            type="button"
+            className="BlackbaudConfirm__button BlackbaudConfirm__button--back"
+            onClick={this.handleDeny}>
+            Log in with a different account
+          </button>
+        </div>
       </div>
     )
   }

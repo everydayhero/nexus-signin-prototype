@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import TextInput from 'hero-ui/forms/TextInput'
 import Button from 'hero-ui/buttons/Button'
 import FullPageLoader from '../../components/FullPageLoader'
+import PageError from '../../components/PageError'
 import randomTiming from '../../lib/randomTiming'
 
 import './style.scss'
@@ -164,8 +165,14 @@ class SignInForm extends Component {
       emailDirty
     } = this.state
 
+    const { emailError } = this.props.router.location.query
+
     return (
       <div className="SignInForm">
+        <PageError visible={!!emailError}>
+          {emailError} does not have permission to view this content. Try signing in again with an existing everydayhero or Blackbaud account.
+        </PageError>
+
         <header className="SignInForm__header">
           <hgroup>
             <h1>Sign In</h1>

@@ -1,6 +1,7 @@
 .BlackbaudConfirm {
-  text-align: center;
   font-family: 'Open Sans', 'helvetica neue', arial, sans-serif;
+  border-top: 15px solid #314150;
+  padding-top: 12px;
 
   img {
     width: 107px;
@@ -10,26 +11,41 @@
 }
 
 .BlackbaudConfirm__content {
-  width: 325px;
+  width: 960px;
   margin: 0 auto 48px;
 }
 
 .BlackbaudConfirm__title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 16px;
+  font-size: 32px;
+  margin-bottom: 6px;
+  font-family: 'Oswald', 'Open Sans', sans-serif;
+}
+
+.BlackbaudConfirm__subtitle {
+  margin-bottom: 48px;
+}
+
+.BlackbaudConfirm__icon {
+  display: inline-block;
+  padding: 40px 15px 15px;
+  font-size: 32px;
+  vertical-align: middle;
+}
+
+.BlackbaudConfirm__actions {
+  width: 960px;
+  margin: 0 auto;
 }
 
 .BlackbaudConfirm__button {
-  display: block;
-  width: 300px;
-  margin: 0 auto 16px;
+  display: inline-block;
+  margin: 0 16px 0 0;
   border: 1px solid #c2c2c2;
   color: #333;
   background: #fff;
   border-radius: 3px;
   font-size: 18px;
-  padding: 8px;
+  padding: 8px 16px;
 
   &:hover {
     border-color: #aaa;
@@ -38,7 +54,7 @@
 
 $bbblue: #0081ca;
 
-.BlackbaudConfirm__button--allow {
+.BlackbaudConfirm__button--continue {
   background-color: $bbblue;
   border-color: $bbblue;
   color: #fff;

@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.PageError {
+  lin-height: 1.5;
+  background: $red;
+  color: #fff;
+  max-width: 600px;
+  position: absolute;
+  top: 0;
+  padding: 15px;
+  border-radius: 0 0 2px 2px;
+}

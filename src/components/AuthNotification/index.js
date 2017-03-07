@@ -17,7 +17,7 @@ export default ({ router }) => {
         <Button
           label="Connect to Blackbaud"
           kind="secondary"
-          onClick={router.push.bind(null, `blackbaud-signin?email=${email}`)} />
+          onClick={router.push.bind(null, `blackbaud-signin?currentEmail=${email}`)} />
       </div>
     </div>
   )
