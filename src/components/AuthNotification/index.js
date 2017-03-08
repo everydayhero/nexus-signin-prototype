@@ -11,12 +11,12 @@ export default ({ router }) => {
     <div className="AuthNotification">
       <div className="AuthNotification__content">
         <div className="AuthNotification__title">Sign in to everydayhero with Blackbaud</div>
-        <div className="AuthNotification__body">Sign in faster and remember one less password by connecting everydayhero to your Blackbaud account.</div>
+        <div className="AuthNotification__body">Remember one less password and sign in faster by connecting everydayhero to your Blackbaud account.</div>
       </div>
       <div className="AuthNotification__actions">
         <Button
           label="Connect to Blackbaud"
-          kind="secondary"
+          kind="cta"
           onClick={router.push.bind(null, `blackbaud-signin?currentEmail=${email}`)} />
       </div>
     </div>
