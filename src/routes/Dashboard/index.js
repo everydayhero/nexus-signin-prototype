@@ -16,7 +16,10 @@ export default (props) => {
     <div className={ `Dashboard ${bbClass}` }>
       { notBlackbaudUser && <AuthNotification router={props.router} /> }
       <Welcome visible={isFirstTime} />
-      <ConnectionSuccess visible={isNewEmail} router={props.router} />
+      <ConnectionSuccess
+        visible={isNewEmail}
+        router={props.router}
+        email={query.email} />
     </div>
   )
 }

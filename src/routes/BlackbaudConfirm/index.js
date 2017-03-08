@@ -41,8 +41,6 @@ class BlackbaudConfirm extends Component {
     const { query } = this.props.router.location
     const currentEmail = query.currentEmail || ''
 
-    console.log(currentEmail)
-
     setTimeout(() => {
       this.props.router.push(`blackbaud-signin?welcome=enabled&currentEmail=${currentEmail}`)
     }, randomTiming(300, 1100))

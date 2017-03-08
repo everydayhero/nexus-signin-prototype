@@ -10,8 +10,8 @@ export default ({ router }) => {
   return (
     <div className="AuthNotification">
       <div className="AuthNotification__content">
-        <div className="AuthNotification__title">Connect to Blackbaud</div>
-        <div className="AuthNotification__body">Sign in faster and easier by connecting everydayhero to your Blackbaud account.</div>
+        <div className="AuthNotification__title">Sign in to everydayhero with Blackbaud</div>
+        <div className="AuthNotification__body">Sign in faster and remember one less password by connecting everydayhero to your Blackbaud account.</div>
       </div>
       <div className="AuthNotification__actions">
         <Button

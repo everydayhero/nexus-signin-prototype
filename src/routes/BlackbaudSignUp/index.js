@@ -38,7 +38,12 @@ class BlackbaudSignUp extends Component {
       const { emailValue } = this.state
 
       if (query.currentEmail && query.currentEmail !== emailValue) {
-        router.push(`blackbaud-confirm?currentEmail=${query.currentEmail}&email=${emailValue}`)
+        router.push(`dashboard?connection=enabled&email=${emailValue}`)
+        return
+      }
+
+      if (query.currentEmail) {
+        router.push(`dashboard?connection=enabled`)
         return
       }
 

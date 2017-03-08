@@ -1,0 +1,67 @@
+@import '../../variables';
+
+.Confirm {
+  font-family: $defaultFontStack;
+  width: 600px;
+  margin: 100px auto 200px;
+  text-align: center;
+  color: $charcoal;
+
+  img {
+    width: 200px;
+  }
+}
+
+.Confirm__heading {
+  font-family: $titleFontStack;
+  font-size: 64px;
+  margin-bottom: $x-6;
+}
+
+.Confirm__body {
+  font-size: 18px;
+  margin-bottom: $x-10;
+  line-height: 1.5;
+}
+
+.Confirm__accounts {
+  margin-bottom: 64px;
+}
+
+.Confirm__account {
+  display: inline-block;
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.Confirm__label {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: $smoke;
+}
+
+.Confirm__name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.Confirm__arrow {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: $x-8;
+  padding: 0 $x-4;
+}
+
+.Confirm__buttons {
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+
+  button {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}

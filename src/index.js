@@ -8,6 +8,7 @@ import Dashboard from './routes/Dashboard'
 import SignInForm from './routes/SignInForm'
 import SignUp from './routes/SignUp'
 import SignUpEmail from './routes/SignUpEmail'
+import Confirm from './routes/Confirm'
 import BlackbaudSignIn from './routes/BlackbaudSignIn'
 import BlackbaudSignUp from './routes/BlackbaudSignUp'
 import BlackbaudConfirm from './routes/BlackbaudConfirm'
@@ -18,6 +19,7 @@ render((
         <IndexRoute component={ SignInForm } />
         <Route path="/dashboard" component={ Dashboard } />
         <Route path="/signup" component={ SignUp } />
+        <Route path="/confirm" component={ Confirm } />
       </Route>
       <Route path="/signup-email" component={ SignUpEmail } />
       <Route path="/blackbaud-signin" component={ BlackbaudSignIn } />

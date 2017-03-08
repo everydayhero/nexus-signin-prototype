@@ -35,18 +35,18 @@ class BlackbaudSignIn extends Component {
       const { query } = router.location
       const { emailValue } = this.state
 
+      if (query.currentEmail && query.currentEmail !== emailValue) {
+        router.push(`dashboard?connection=enabled&email=${emailValue}`)
+        return
+      }
+
       if (query.currentEmail) {
-        router.push(`blackbaud-confirm?currentEmail=${query.currentEmail}&email=${emailValue}`)
+        router.push(`dashboard?connection=enabled`)
         return
       }
 
       if (query.email && query.email !== emailValue) {
         router.push(`/?auth=blackbaud-signedout&emailError=${emailValue}`)
-        return
-      }
-
-      if (!query.currentEmail && !query.email) {
-        router.push(`blackbaud-confirm?&email=${emailValue}&welcome=${query.welcome}`)
         return
       }
 
