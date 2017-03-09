@@ -7,6 +7,20 @@
   height: 100%;
   position: absolute;
   font-family: $defaultFontStack;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  transform: scale(0);
+
+  &--visible {
+    visibility: visible;
+    transform: scale(1);
+  }
 }
 
 .ConnectionSuccess__content {
@@ -46,15 +60,8 @@
     display: inline-block;
   }
 
-  .hui-Checkbox {
-    display: inline-block;
+  input {
     margin: 0 10px 0 0;
-    padding: 0;
-
-    input {
-      margin: 0;
-      padding: 0;
-    }
   }
 }
 

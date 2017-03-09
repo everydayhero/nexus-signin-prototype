@@ -11,6 +11,7 @@ import SignUpEmail from './routes/SignUpEmail'
 import Confirm from './routes/Confirm'
 import BlackbaudSignIn from './routes/BlackbaudSignIn'
 import BlackbaudSignUp from './routes/BlackbaudSignUp'
+import BlackbaudConfirmSignUp from './routes/BlackbaudConfirmSignUp'
 import BlackbaudConfirm from './routes/BlackbaudConfirm'
 
 render((
@@ -24,6 +25,7 @@ render((
       <Route path="/signup-email" component={ SignUpEmail } />
       <Route path="/blackbaud-signin" component={ BlackbaudSignIn } />
       <Route path="/blackbaud-signup" component={ BlackbaudSignUp } />
+      <Route path="/blackbaud-confirm-signup" component={ BlackbaudConfirmSignUp } />
       <Route path="/blackbaud-confirm" component={ BlackbaudConfirm } />
       <Route path="/scenarios" component={Scenarios} />
     </Router>

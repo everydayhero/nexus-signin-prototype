@@ -1,0 +1,33 @@
+.BlackbaudConfirmSignup {
+  background: url('./background.png') no-repeat top center #fff;
+  width: 1280px;
+  height: 1158px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.BlackbaudConfirmSignup__email {
+  font-family: 'Open Sans';
+  position: absolute;
+  top: 185px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.BlackbaudConfirmSignup__nextButton {
+  border-radius: 12px;
+  background: rgba(0,0,0,0.66);
+  border: 0;
+  padding: 12px;
+  color: #fff;
+  font-size: 18px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0;
+  transition: opacity 0.33s ease-in-out 0.5s;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -38,12 +38,12 @@ class BlackbaudSignUp extends Component {
       const { emailValue } = this.state
 
       if (query.currentEmail && query.currentEmail !== emailValue) {
-        router.push(`dashboard?connection=enabled&email=${emailValue}`)
+        router.push(`blackbaud-confirm-signup?connection=enabled&newEmail=enabled&email=${emailValue}`)
         return
       }
 
       if (query.currentEmail) {
-        router.push(`dashboard?connection=enabled`)
+        router.push(`blackbaud-confirm-signup?connection=enabled&email=${emailValue}`)
         return
       }
 
@@ -52,7 +52,7 @@ class BlackbaudSignUp extends Component {
         return
       }
 
-      router.push(`dashboard?auth=blackbaud&welcome=${query.welcome}`)
+      router.push(`blackbaud-confirm-signup?auth=blackbaud&welcome=${query.welcome}&email=${emailValue}`)
     }, randomTiming(2800, 3200))
   }
 

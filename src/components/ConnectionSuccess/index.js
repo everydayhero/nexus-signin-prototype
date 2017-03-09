@@ -1,26 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Button from 'hero-ui/buttons/Button'
-import Checkbox from 'hero-ui/forms/Checkbox'
-import Modal from '../Modal'
 
 import illustration from './illustration.png'
 import './style.scss'
 
-export default class extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      checked: false
+export default React.createClass({
+  getInitialState () {
+    return {
+      isChecked: false
     }
+  },
 
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
-  }
-
-  handleCheckboxChange () {
-    const { checked } = this.state
-
-    this.setState({ checked: !checked })
-  }
+  handleInputChange() {
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
+  },
 
   renderSuccess () {
     return (
@@ -39,7 +34,7 @@ export default class extends Component {
         </div>
       </div>
     )
-  }
+  },
 
   renderConfirm () {
     const { router } = this.props
@@ -53,17 +48,21 @@ export default class extends Component {
           You're one step away from being able to sign in to everydayhero with your Blackbaud email and password. Confirm the following to continue:
         </div>
         <div className='ConnectionSuccess__ack'>
-          <Checkbox
-            value={this.state.checked}
-            onChange={this.handleCheckboxChange} />
-            <span onClick={this.handleCheckboxChange}>Next time I sign in I'll use <strong>{this.props.email}</strong></span>
+          <label htmlFor="checkbox">
+            <input
+              id="checkbox"
+              type="checkbox"
+              checked={this.state.isChecked}
+              onChange={this.handleInputChange} />
+            <span>Next time I sign in I'll use <strong>{this.props.newEmail}</strong></span>
+          </label>
         </div>
         <div className="ConnectionSuccess__buttons">
           <Button
             kind="cta"
             label="Continue"
             onClick={() => {}}
-            disabled={!this.state.checked} />
+            disabled={!this.state.isChecked} />
           <Button
             kind="tertiary"
             borderless
@@ -72,18 +71,18 @@ export default class extends Component {
         </div>
       </div>
     )
-  }
+  },
 
   render () {
-    const { visible, email } = this.props
+    const { visible, newEmail } = this.props
 
     return (
-      <Modal className='ConnectionSuccess' opened={visible} aboveTopBar={true}>
+      <div className={`ConnectionSuccess ${visible && 'ConnectionSuccess--visible'}`}>
         <div className='ConnectionSuccess__content'>
           <img src={illustration} role="presentation" />
-          { email ? this.renderConfirm() : this.renderSuccess() }
+          { newEmail ? this.renderConfirm() : this.renderSuccess() }
         </div>
-      </Modal>
+      </div>
     )
   }
-}
+})

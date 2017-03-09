@@ -9,7 +9,6 @@ export default (props) => {
   const { query } = props.router.location
   const notBlackbaudUser = query && query.auth !== 'blackbaud'
   const isFirstTime = query && query.welcome === 'enabled'
-  const isNewEmail = query && query.connection === 'enabled'
   const bbClass = notBlackbaudUser ? '' : 'Dashboard--bb'
 
   return (
@@ -17,9 +16,9 @@ export default (props) => {
       { notBlackbaudUser && <AuthNotification router={props.router} /> }
       <Welcome visible={isFirstTime} />
       <ConnectionSuccess
-        visible={isNewEmail}
+        visible={query && query.connection === 'enabled'}
         router={props.router}
-        email={query.email} />
+        newEmail={query.newEmail} />
     </div>
   )
 }
