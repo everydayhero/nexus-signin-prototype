@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import Button from 'hero-ui/buttons/Button'
 
-import illustration from './illustration.png'
+import lanyard from './lanyard.png'
 import './style.scss'
 
 export default (props) => {
@@ -14,7 +14,7 @@ export default (props) => {
 
   return (
     <div className="SignUp">
-      <img src={illustration} role="presentation" />
+      <img src={lanyard} role="presentation" />
       <div className="SignUp__content">
         Complete the activation of <strong>World Puppy Foundation</strong> by creating a user account with Blackbaud:
       </div>
