@@ -9,3 +9,5 @@ https://everydayhero.github.io/nexus-signin-prototype/#/scenarios
 
 - `yarn start` to run local dev.
 - `yarn run deploy` to build prod and deploy to gh-pages.
+
+Yay for horrible prototype code :)
