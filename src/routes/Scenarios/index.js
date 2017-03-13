@@ -4,13 +4,17 @@ import Scenario from '../../components/Scenario'
 export default () => {
   return (
     <div className="Scenarios">
-      <Scenario route="/" name="Sign In: Legacy User/Connection">
-        <p>Sign in as a legacy user and then connect your account to Blackbaud. <strong>Hint:</strong> Enter a different email address at the Blackbaud sign in/sign up step to simulate a different confirmation step at the end.</p>
+      <Scenario route="/" name="Sign In: Nexus User/Connection">
+        <p>Sign in as a Nexus user and then connect your account to Blackbaud. <strong>Hint:</strong> Enter a different email address at the Blackbaud sign in/sign up step to simulate a different confirmation step at the end.</p>
       </Scenario>
 
       <Scenario route="/?auth=blackbaud-signedout" name="Sign In: Known Blackbaud User">
         <p>Sign in as to everydayhero as "known" Blackbaud user. Try changing the email address on the Blackbaud form to simulate what might happen if you try to sign in with an "unknown" Blackbaud account.</p>
         <p><strong>Note:</strong> In this scenario I believe we should endeavour to hide the "create an account" button on the Blackbaud side. There's no way for that button to lead to a successful sign in.</p>
+      </Scenario>
+
+      <Scenario route="/?auth=blackbaud-waiting" name="Sign In and Connect: When already signed in to Blackbaud">
+        <p>Given an existing Blackbaud session, sign in as a Nexus user and connect your account to Blackbaud.</p>
       </Scenario>
 
       <Scenario route="/signup" name="Signup: Not Signed-in">

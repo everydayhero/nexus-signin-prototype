@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from 'hero-ui/buttons/Button'
+import ConnectionBoxes from '../ConnectionBoxes'
 
 import illustration from './illustration.png'
 import './style.scss'
@@ -26,19 +27,23 @@ export default React.createClass({
         <div className='ConnectionSuccess__body'>
           Your everydayhero and Blackbaud accounts are now connected! From now on you will sign in to everydayhero via Blackbaud.
         </div>
+        <ConnectionBoxes email={this.props.email} />
         <div className="ConnectionSuccess__buttons">
           <Button
             kind="cta"
             label="Continue"
             onClick={() => {}} />
+          <Button
+            kind="tertiary"
+            borderless
+            label="Go back, cancel connection"
+            onClick={() => { this.props.router.goBack() }} />
         </div>
       </div>
     )
   },
 
   renderConfirm () {
-    const { router } = this.props
-
     return (
       <div>
         <div className='ConnectionSuccess__heading'>
@@ -47,6 +52,7 @@ export default React.createClass({
         <div className='ConnectionSuccess__body'>
           You're one step away from being able to sign in to everydayhero with your Blackbaud email and password. Confirm the following to continue:
         </div>
+        <ConnectionBoxes email={this.props.newEmail} />
         <div className='ConnectionSuccess__ack'>
           <label htmlFor="checkbox">
             <input
@@ -67,7 +73,7 @@ export default React.createClass({
             kind="tertiary"
             borderless
             label="Go back, cancel connection"
-            onClick={() => { router.goBack() }} />
+            onClick={() => { this.props.router.goBack() }} />
         </div>
       </div>
     )

@@ -1,0 +1,31 @@
+@import '../../variables';
+
+.ConnectionBoxes {
+  margin-bottom: 40px;
+}
+
+.ConnectionBoxes__account {
+  display: inline-block;
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.ConnectionBoxes__label {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: $smoke;
+}
+
+.ConnectionBoxes__name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ConnectionBoxes__arrow {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: $x-8;
+  padding: 0 $x-4;
+}

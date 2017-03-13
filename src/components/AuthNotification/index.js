@@ -3,9 +3,10 @@ import Button from 'hero-ui/buttons/Button'
 
 import './style.scss'
 
-export default ({ router }) => {
+export default ({ router, hasActiveBBSession }) => {
   const { query } = router.location
   const email = query && query.email ? query.email : ''
+  const forwardRoute = hasActiveBBSession ? `confirm?email=${email}` : `blackbaud-signin?currentEmail=${email}`
 
   return (
     <div className="AuthNotification">
@@ -17,7 +18,7 @@ export default ({ router }) => {
         <Button
           label="Connect to Blackbaud"
           kind="cta"
-          onClick={router.push.bind(null, `blackbaud-signin?currentEmail=${email}`)} />
+          onClick={router.push.bind(null, forwardRoute)} />
       </div>
     </div>
   )

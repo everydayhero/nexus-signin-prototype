@@ -3,12 +3,13 @@ import React from 'react'
 import './style.scss'
 
 const nextStep = (query, push) => {
+  const pathname = query.connection === 'enabled' ? 'dashboard' : 'confirm'
+
   return push({
-    pathname: 'dashboard',
+    pathname,
     query
   })
 }
-
 
 export default ({ router }) => {
   return (

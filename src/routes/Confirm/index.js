@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Icon from 'hero-ui/atoms/Icon'
 import Button from 'hero-ui/buttons/Button'
 import FullPageLoader from '../../components/FullPageLoader'
+import ConnectionBoxes from '../../components/ConnectionBoxes'
 import randomTiming from '../../lib/randomTiming'
 
 import illustration from './illustration.png'
@@ -33,25 +33,7 @@ export default class extends Component {
         <div className='Confirm__body'>
           You're one step away from being able to sign in to everydayhero with your Blackbaud email and password. Confirm the following to continue:
         </div>
-        <div className='Confirm__accounts'>
-          <div className='Confirm__account'>
-            <div className='Confirm__label'>
-              Your Blackbaud Account
-            </div>
-            <div className='Confirm__name'>
-              {this.props.router.location.query.email || 'john.smith@example.com'}
-            </div>
-          </div>
-          <Icon icon="arrow-right" className="Confirm__arrow" />
-          <div className='Confirm__account'>
-            <div className='Confirm__label'>
-              everydayhero organisation
-            </div>
-            <div className='Confirm__name'>
-              World Puppy Foundation
-            </div>
-          </div>
-        </div>
+        <ConnectionBoxes email={this.props.router.location.query.email || 'john.smith@example.com'} />
         <div className="Confirm__buttons">
           <Button
             kind="cta"

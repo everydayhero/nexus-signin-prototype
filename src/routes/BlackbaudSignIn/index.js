@@ -41,7 +41,7 @@ class BlackbaudSignIn extends Component {
       }
 
       if (query.currentEmail) {
-        router.push(`dashboard?connection=enabled`)
+        router.push(`dashboard?connection=enabled&email=${emailValue}`)
         return
       }
 
@@ -50,7 +50,7 @@ class BlackbaudSignIn extends Component {
         return
       }
 
-      router.push(`dashboard?auth=blackbaud&welcome=${query.welcome}`)
+      router.push(`confirm?email=${emailValue}`)
     }, randomTiming(2800, 3200))
   }
 
