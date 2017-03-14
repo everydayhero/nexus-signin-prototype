@@ -41,8 +41,6 @@ class SignInForm extends Component {
 
       if (query && query.auth === 'blackbaud-signedin') {
         this.props.router.push(`dashboard?email=${this.state.emailValue}&auth=blackbaud`)
-      } else if (query && query.auth === 'blackbaud-waiting') {
-        this.props.router.push(`dashboard?email=${this.state.emailValue}&auth=blackbaud-waiting`)
       } else if (query && query.auth === 'blackbaud-signedout') {
         this.props.router.push(`blackbaud-signin?email=${this.state.emailValue}`)
       } else {
@@ -88,10 +86,15 @@ class SignInForm extends Component {
   }
 
   handleSignIn () {
+    const { query } = this.props.router.location
     this.setState({ signingIn: true })
 
     setTimeout(() => {
-      this.props.router.push(`dashboard?email=${this.state.emailValue}`)
+      if (query && query.auth === 'blackbaud-waiting') {
+        this.props.router.push(`dashboard?email=${this.state.emailValue}&auth=blackbaud-waiting`)
+      } else {
+        this.props.router.push(`dashboard?email=${this.state.emailValue}`)
+      }
     }, randomTiming(2800, 3200))
   }
 

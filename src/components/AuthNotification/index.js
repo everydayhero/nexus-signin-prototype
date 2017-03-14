@@ -6,7 +6,7 @@ import './style.scss'
 export default ({ router, hasActiveBBSession }) => {
   const { query } = router.location
   const email = query && query.email ? query.email : ''
-  const forwardRoute = hasActiveBBSession ? `confirm?email=${email}` : `blackbaud-signin?currentEmail=${email}`
+  const forwardRoute = hasActiveBBSession ? `dashboard?connection=enabled&email=${email}` : `blackbaud-signin?currentEmail=${email}`
 
   return (
     <div className="AuthNotification">
